@@ -1,11 +1,38 @@
 import gameDAO from "../dao/gameDAO";
-import { GameInstance, Square, GenerateGame, SquareStatus } from "../types";
+import {
+  GameInstance,
+  Square,
+  GenerateGame,
+  SquareStatus,
+  GameAttributes,
+} from "../types";
 import Debug from "debug";
 const debug = Debug("minesweeper:server");
 
 const createGame = (
-  game: GameInstance
-): Promise<GameInstance | null> | undefined => gameDAO.create(game);
+  game: GameAttributes
+): Promise<GameInstance | null> | undefined => {
+  const gameToDb = game;
+
+  const board = createBoard({
+    rows: gameToDb.rows,
+    columns: gameToDb.columns,
+  });
+
+  if (board) {
+    
+    const numberofmines = board.reduce(
+      (acc, val) => acc + val.filter((x) => x.hasMine).length,
+      0
+    );
+    gameToDb.board = board;
+    gameToDb.numberofmines = numberofmines;
+    debug(`Board result ${numberofmines}`);
+    return gameDAO.create(game);
+  } else {
+    throw new Error("Error generating the board");
+  }
+};
 
 const findAllGames = (): Promise<GameInstance[]> => gameDAO.findAll();
 
@@ -35,11 +62,7 @@ const createBoard = (gameProps: GenerateGame): Square[][] | undefined => {
         ++i;
       }
     }
-    const numberofmines = board.reduce(
-      (acc, val) => acc + val.filter((x) => x.hasMine).length,
-      0
-    );
-    debug(`Board result ${JSON.stringify(board)} ${numberofmines}`);
+    
     return board;
   }
 };

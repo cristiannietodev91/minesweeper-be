@@ -11,6 +11,9 @@ const getById = (
 
 const findAll = (): Promise<PlayerInstance[]> => PlayerModel.findAll();
 
+const findPlayerByEmail = (email: string): Promise<PlayerInstance | null> =>
+  PlayerModel.findOne({ where: { email: email } });
+
 const create = (
   player: PlayerAttributes
 ): Promise<PlayerInstance> | undefined => {
@@ -21,4 +24,5 @@ export default {
   getById,
   findAll,
   create,
+  findPlayerByEmail
 };

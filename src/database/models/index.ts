@@ -36,7 +36,6 @@ const GameModel = sequelize.define<GameInstance>("game", {
   },
   score: {
     type: DataTypes.NUMBER,
-    allowNull: false,
   },
   numberofmines: {
     type: DataTypes.NUMBER,
@@ -48,11 +47,9 @@ const GameModel = sequelize.define<GameInstance>("game", {
   },
   startdate: {
     type: DataTypes.DATE,
-    allowNull: false,
   },
   pausedate: {
     type: DataTypes.DATE,
-    allowNull: false,
   },
   enddate: {
     type: DataTypes.DATE,
