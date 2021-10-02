@@ -1,0 +1,58 @@
+{
+  "dependencies": {
+    "cls-hooked": "^4.2.2",
+    "cors": "^2.8.5",
+    "debug": "^4.3.2",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "http-status-codes": "^2.1.4",
+    "mysql2": "^2.3.0",
+    "path": "^0.12.7",
+    "sequelize": "^6.6.5"
+  },
+  "devDependencies": {
+    "@types/cls-hooked": "^4.3.3",
+    "@types/cors": "^2.8.12",
+    "@types/debug": "^4.1.7",
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.10.2",
+    "@types/validator": "^13.6.3",
+    "@typescript-eslint/eslint-plugin": "^4.32.0",
+    "@typescript-eslint/parser": "^4.32.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-node": "^11.1.0",
+    "sequelize-cli": "^6.2.0",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3"
+  },
+  "engines": {
+    "node": ">=12.16.0"
+  },
+  "name": "minesweeper-be",
+  "description": "API service layer to minesweeper game",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "prebuild": "yarn eslint . --ext .js,.jsx,.ts,.tsx",
+    "build": "tsc --project ./",
+    "prestart": "npm run build",
+    "predev": "npm run build",
+    "start": "node .",
+    "dev": "nodemon .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cristiannietodev91/minesweeper-be.git"
+  },
+  "keywords": [
+    "Minesweeper"
+  ],
+  "author": "Cristian Nieto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cristiannietodev91/minesweeper-be/issues"
+  },
+  "homepage": "https://github.com/cristiannietodev91/minesweeper-be#readme"
+}
