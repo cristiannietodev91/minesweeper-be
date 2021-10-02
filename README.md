@@ -28,7 +28,7 @@ DBUSER=root
 
 Run the application
 ```
-yarn dev
+DEBUG=minesweeper:* yarn run dev
 ```
 ### Usage
 
