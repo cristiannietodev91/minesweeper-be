@@ -2,10 +2,8 @@ import cls from "cls-hooked";
 import { Sequelize, Options, DataTypes } from "sequelize";
 
 const namespace = cls.createNamespace("my-very-own-namespace");
-// const env: string = process.env.NODE_ENV || 'development';
 import { config as dbConfig } from "../config/config";
 import { GameInstance, PlayerInstance } from "../../types";
-// import { String } from "aws-sdk/clients/batch";
 import Debug from "debug";
 const debug = Debug("minesweeper:server");
 
@@ -39,7 +37,6 @@ const GameModel = sequelize.define<GameInstance>("game", {
   },
   numberofmines: {
     type: DataTypes.NUMBER,
-    allowNull: false,
   },
   board: {
     type: DataTypes.JSON,
@@ -77,7 +74,7 @@ const PlayerModel = sequelize.define<PlayerInstance>("player", {
 
 GameModel.belongsTo(PlayerModel, {
   foreignKey: "idplayer",
-  targetKey: "idplayer"
+  targetKey: "idplayer",
 });
 
 PlayerModel.hasMany(GameModel, {

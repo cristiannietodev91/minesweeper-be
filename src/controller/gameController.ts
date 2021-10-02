@@ -2,7 +2,7 @@ import HttpStatus from "http-status-codes";
 import gameAdapter from "../adapter/gameAdapter";
 import { Request, Response } from "express";
 import { BaseError } from "sequelize";
-import { GameAttributes, GenerateGame } from "../types";
+import { GameAttributes, GenerateGame, Square } from "../types";
 import Debug from "debug";
 const debug = Debug("minesweeper:server");
 
@@ -60,7 +60,60 @@ const generateBoard = (req: Request, res: Response): void => {
   }
 };
 
+const startGame = (req: Request, res: Response): void => {
+  const { idgame, posX, posY } = req.params;
+
+  gameAdapter
+    .startGame(idgame, { x: +posX, y: +posY })
+    ?.then((result) => {
+      res.status(HttpStatus.OK).json(result);
+    })
+    .catch((error) => {
+      if (error instanceof Error) {
+        res
+          .status(HttpStatus.INTERNAL_SERVER_ERROR)
+          .send({ error: error.message });
+      }
+      if (error instanceof BaseError) {
+        res
+          .status(HttpStatus.INTERNAL_SERVER_ERROR)
+          .send({ error: error.message });
+      }
+    });
+};
+
+const updateBoard = (req: Request, res: Response): void => {
+  const idgame = req.params.idgame;
+  const board = req.body as Square[][];
+
+  if (board.length > 0) {
+    gameAdapter
+      .updateBoard(idgame, board)
+      ?.then((result) => {
+        res.status(HttpStatus.OK).json(result);
+      })
+      .catch((error) => {
+        if (error instanceof Error) {
+          res
+            .status(HttpStatus.INTERNAL_SERVER_ERROR)
+            .send({ error: error.message });
+        }
+        if (error instanceof BaseError) {
+          res
+            .status(HttpStatus.INTERNAL_SERVER_ERROR)
+            .send({ error: error.message });
+        }
+      });
+  } else {
+    res
+      .status(HttpStatus.PRECONDITION_FAILED)
+      .send({ error: "param board is required" });
+  }
+};
+
 export default {
   createGame,
   generateBoard,
+  startGame,
+  updateBoard,
 };
