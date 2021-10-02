@@ -3,16 +3,18 @@ import { Model, Optional } from "sequelize";
 /** ****************
  Game type
  ********************/
-enum SquareStatus {
+export enum SquareStatus {
   Flag,
   Covered,
   Uncovered,
 }
 
-interface Square {
+export interface Square {
   hasMine: boolean;
   status: SquareStatus;
 }
+
+
 
 export interface GameAttributes {
   idgame: number;
@@ -32,6 +34,12 @@ interface GameCreationAttributes extends Optional<GameAttributes, "idgame"> {}
 export interface GameInstance
   extends Model<GameAttributes, GameCreationAttributes>,
     GameAttributes {}
+
+export interface GenerateGame {
+  rows: number;
+  columns: number;
+  numberofmines: number;
+}
 
 /** ****************
  Player type

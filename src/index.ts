@@ -4,6 +4,7 @@ import path from "path";
 
 import * as indexRouter from "./routes/index";
 import * as playersRouter from "./routes/playersRoute";
+import * as gameRouter from "./routes/gameRoute";
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.disable("x-powered-by");
 
 indexRouter.register(app);
 playersRouter.register(app);
+gameRouter.register(app);
 
 app.listen(3000, () => {
   console.log("The application is listening on port 3000!");
