@@ -9,7 +9,7 @@ module.exports = {
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-    return queryInterface.sequelize.transaction((t) => {
+    return queryInterface.sequelize.transaction(() => {
       return Promise.all([
         queryInterface.createTable("player", {
           idplayer: {
@@ -62,7 +62,6 @@ module.exports = {
           },
           score: {
             type: Sequelize.DECIMAL,
-            allowNull: false,
             defaultValue: 0,
           },
           numberofmines: {
@@ -75,11 +74,9 @@ module.exports = {
           },
           startdate: {
             type: Sequelize.DATE,
-            allowNull: false,
           },
           pausedate: {
             type: Sequelize.DATE,
-            allowNull: false,
           },
           enddate: {
             type: Sequelize.DATE,
@@ -97,14 +94,14 @@ module.exports = {
     });
   },
 
-  down: async (queryInterface, Sequelize) => {
+  down: async (queryInterface) => {
     /**
      * Add reverting commands here.
      *
      * Example:
      * await queryInterface.dropTable('users');
      */
-    await queryInterface.dropTable("player");
     await queryInterface.dropTable("game");
+    await queryInterface.dropTable("player");
   },
 };

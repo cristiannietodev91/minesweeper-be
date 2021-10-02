@@ -24,9 +24,9 @@ export interface GameAttributes {
   score: number;
   numberofmines: number;
   board: Square[][];
-  startdate: Date;
-  pausedate: Date;
-  enddate: Date;
+  startdate?: Date;
+  pausedate?: Date;
+  enddate?: Date;
 }
 
 interface GameCreationAttributes extends Optional<GameAttributes, "idgame"> {}
@@ -38,7 +38,7 @@ export interface GameInstance
 export interface GenerateGame {
   rows: number;
   columns: number;
-  numberofmines: number;
+  numberofmines?: number;
 }
 
 /** ****************
