@@ -4,17 +4,15 @@ import { Model, Optional } from "sequelize";
  Game type
  ********************/
 export enum SquareStatus {
-  Flag,
-  Covered,
-  Uncovered,
+  Flag = "Flag",
+  Covered = "Covered",
+  Uncovered = "Uncovered",
 }
 
 export interface Square {
   hasMine: boolean;
   status: SquareStatus;
 }
-
-
 
 export interface GameAttributes {
   idgame: number;
@@ -31,6 +29,19 @@ export interface GameAttributes {
 
 interface GameCreationAttributes extends Optional<GameAttributes, "idgame"> {}
 
+export interface GameUpdateAttributes
+  extends Optional<
+    GameAttributes,
+    | "idgame"
+    | "idplayer"
+    | "rows"
+    | "columns"
+    | "score"
+    | "numberofmines"
+    | "board"
+    | "pausedate"
+    | "enddate"
+  > {}
 export interface GameInstance
   extends Model<GameAttributes, GameCreationAttributes>,
     GameAttributes {}

@@ -66,7 +66,7 @@ module.exports = {
           },
           numberofmines: {
             type: Sequelize.INTEGER,
-            allowNull: false,
+            defaultValue: 0,
           },
           board: {
             type: Sequelize.JSON,
