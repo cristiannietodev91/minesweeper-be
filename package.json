@@ -38,7 +38,6 @@
   "scripts": {
     "prebuild": "yarn eslint . --ext .js,.jsx,.ts,.tsx",
     "build": "tsc --project ./",
-    "prestart": "npm run build",
     "predev": "npm run build",
     "start": "node .",
     "dev": "nodemon .",
