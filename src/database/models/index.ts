@@ -58,7 +58,7 @@ const GameModel = sequelize.define<GameInstance>(
     },
   },
   {
-    tableName: "games",
+    tableName: "game",
   }
 );
 
