@@ -73,6 +73,8 @@ const PlayerModel = sequelize.define<PlayerInstance>("player", {
     type: DataTypes.STRING,
     allowNull: false,
   },
+}, {
+  tableName: "player"
 });
 
 GameModel.belongsTo(PlayerModel, {
