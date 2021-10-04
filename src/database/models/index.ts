@@ -2,12 +2,15 @@ import cls from "cls-hooked";
 import { Sequelize, Options, DataTypes } from "sequelize";
 
 const namespace = cls.createNamespace("my-very-own-namespace");
-import { config as dbConfig } from "../config/config";
+import config from "../config/config";
 import { GameInstance, PlayerInstance } from "../../types";
 import Debug from "debug";
 const debug = Debug("minesweeper:server");
 
-const myConfig: Options = dbConfig[0];
+const myConfig: Options =
+  process.env.NODE_ENV === "production"
+    ? { ...config.production, dialect: "mysql" }
+    : { ...config.development, dialect: "mysql" };
 
 Sequelize.useCLS(namespace);
 
