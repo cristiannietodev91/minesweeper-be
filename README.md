@@ -6,7 +6,10 @@ API created on express using typescript that allows to create a minesweeper game
 
 This API was created as part of an interview process. I tried to show my skills using Express, Sequelize and TypeScript.
 
+## API Documentation - Postman
 
+Download it and import it in Postman to check all available endpoints
+[Api doc](docs/MinesWeeper.postman_collection.json)
 
 ## installation
 

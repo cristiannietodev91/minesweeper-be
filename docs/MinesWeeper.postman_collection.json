@@ -1,0 +1,103 @@
+{
+	"info": {
+		"_postman_id": "09015510-cca3-42ca-9069-98f51c18fdf2",
+		"name": "MinesWeeper",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Players",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{URL}}/players/getAll"
+			},
+			"response": []
+		},
+		{
+			"name": "Generate Board",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"rows\": 12,\n    \"columns\": 12\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{URL}}/game/generate"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Player",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"cristianandresnieto@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{URL}}/players/create"
+			},
+			"response": []
+		},
+		{
+			"name": "create Game",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"idplayer\": 1,\n    \"rows\": 5,\n    \"columns\": 5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{URL}}/game/create"
+			},
+			"response": []
+		},
+		{
+			"name": "update Game",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    [\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        }\n    ],\n    [\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        }\n    ],\n    [\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        }\n    ],\n    [\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        }\n    ],\n    [\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        }\n    ],\n    [\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        }\n    ],\n    [\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        }\n    ],\n    [\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        }\n    ],\n    [\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        }\n    ],\n    [\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        }\n    ],\n    [\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        }\n    ],\n    [\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": false,\n            \"status\": \"Covered\"\n        },\n        {\n            \"hasMine\": true,\n            \"status\": \"Covered\"\n        }\n    ]\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{URL}}/game/updateboard/2"
+			},
+			"response": []
+		},
+		{
+			"name": "start Game",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "{{URL}}/game/startgame/2/0/1"
+			},
+			"response": []
+		}
+	]
+}
