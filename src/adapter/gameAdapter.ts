@@ -54,7 +54,7 @@ const populateMines = (
   const maxNumberOfMines =
     gameProps.numberofmines && gameProps.numberofmines < maxMines
       ? gameProps.numberofmines
-      : maxMines * 0.5;
+      : maxMines * 0.2;
   board = restoreBoard(gameProps);
   for (let i = 0; i < Math.trunc(maxNumberOfMines); ) {
     const x = Math.floor(Math.random() * gameProps.rows);

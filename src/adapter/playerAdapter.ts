@@ -17,9 +17,7 @@ const createPlayer = (player: PlayerAttributes): Promise<PlayerInstance | undefi
     .findPlayerByEmail(player.email)
     .then((player) => {
       if (player) {
-        throw new Error(
-          `Player with ${player.email} is registered`
-        );
+        return player;
       }
       return playerDAO.create(playerToDb);
     })
